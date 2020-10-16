@@ -3,22 +3,28 @@ import {
   Dimensions,
   Image,
   View,
+  ProgressViewIOS,
+  ProgressBarAndroid,
+  ActivityIndicator,
+    Button,
   StyleSheet,
   Text,
   StatusBar,
 } from 'react-native';
 import picLogo from './assets/favicon.png';
-class React$Node {}
-
 const App: () => React$Node = () => {
+  const onPressed = () => {
+    alert('Hello');
+  };
   return (
     <>
       <StatusBar hidden={true} />
       <View style={styles.container}>
+        <ActivityIndicator size="large" color="#61DBFB" />
+        <Button title="ClickMe!" onPress={onPressed} />
         <Text style={styles.defaultText}>وليد</Text>
         <Text style={[styles.selectedText, styles.defaultText]}>محمد</Text>
         <Text style={styles.defaultText}>باسل</Text>
-        <Image style={styles.picStyle} source={picLogo} />
       </View>
     </>
   );
