@@ -19,7 +19,7 @@ const {height, width} = Dimensions.get('window');
 const App: () => React$Node = () => {
   const [backgroundColor, setBackgroundColor] = useState('blue');
   const onPressed = () => {
-    Alert.alert('Theh OS is ' + Platform.OS);
+    Alert.alert('The OS is ' + Platform.OS);
   };
   function ColorButon({backgroundColor, onPress = (f) => f}) {
     return (
@@ -38,9 +38,9 @@ const App: () => React$Node = () => {
     <>
       <StatusBar hidden={true} />
       <View style={[styles.container, {backgroundColor}]}>
-        <ColorButon backgroundColor={'red'} onPress={backgroundColor} />
-        <ColorButon backgroundColor={'blue'} onPress={backgroundColor} />
-        <ColorButon backgroundColor={'green'} onPress={backgroundColor} />
+        <ColorButon backgroundColor={'red'} onPress={setBackgroundColor} />
+        <ColorButon backgroundColor={'blue'} onPress={setBackgroundColor} />
+        <ColorButon backgroundColor={'green'} onPress={setBackgroundColor} />
         <Button title="ClickMe you stupid person!\n" onPress={onPressed} />
       </View>
     </>
