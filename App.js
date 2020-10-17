@@ -1,58 +1,34 @@
 import React, {useState} from 'react';
 import {
   Dimensions,
-  Image,
   View,
-  TouchableHighlight,
-  ProgressViewIOS,
-  ProgressBarAndroid,
-  ActivityIndicator,
   Button,
   Alert,
   StyleSheet,
-  Text,
   Platform,
   StatusBar,
 } from 'react-native';
-import picLogo from './assets/favicon.png';
+import ColorButton from './src/Components/ColorButton';
 const {height, width} = Dimensions.get('window');
 const App: () => React$Node = () => {
   const [backgroundColor, setBackgroundColor] = useState('blue');
   const onPressed = () => {
     Alert.alert('The OS is ' + Platform.OS);
   };
-  function ColorButon({backgroundColor, onPress = (f) => f}) {
-    return (
-      <TouchableHighlight
-        style={styles.button}
-        underlayColor={backgroundColor}
-        onPress={() => onPress(backgroundColor)}>
-        <View style={styles.row}>
-          <View style={[styles.sample, {backgroundColor}]} />
-          <Text style={styles.defaultText}>{backgroundColor}</Text>
-        </View>
-      </TouchableHighlight>
-    );
-  }
+
   return (
     <>
       <StatusBar hidden={true} />
       <View style={[styles.container, {backgroundColor}]}>
-        <ColorButon backgroundColor={'red'} onPress={setBackgroundColor} />
-        <ColorButon backgroundColor={'blue'} onPress={setBackgroundColor} />
-        <ColorButon backgroundColor={'green'} onPress={setBackgroundColor} />
+        <ColorButton backgroundColor={'red'} onPress={setBackgroundColor} />
+        <ColorButton backgroundColor={'blue'} onPress={setBackgroundColor} />
+        <ColorButton backgroundColor={'green'} onPress={setBackgroundColor} />
         <Button title="ClickMe you stupid person!\n" onPress={onPressed} />
       </View>
     </>
   );
 };
 const styles = StyleSheet.create({
-  defaultText: {
-    textAlign: 'center',
-    fontSize: 22,
-    padding: 10,
-    margin: 5,
-  },
   sample: {
     height: 20,
     width: 20,
