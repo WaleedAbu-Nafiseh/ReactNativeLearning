@@ -7,24 +7,33 @@ import {
   StyleSheet,
   Platform,
   StatusBar,
+  FlatList,
 } from 'react-native';
 import ColorButton from './src/Components/ColorButton';
+// eslint-disable-next-line no-unused-vars
 const {height, width} = Dimensions.get('window');
+import colorsList from './data/defaultColors.json';
+
 const App: () => React$Node = () => {
   const [backgroundColor, setBackgroundColor] = useState('blue');
-  const onPressed = () => {
-    Alert.alert('The OS is ' + Platform.OS);
-  };
 
   return (
+
     <>
       <StatusBar hidden={true} />
-      <View style={[styles.container, {backgroundColor}]}>
-        <ColorButton backgroundColor={'red'} onPress={setBackgroundColor} />
-        <ColorButton backgroundColor={'blue'} onPress={setBackgroundColor} />
-        <ColorButton backgroundColor={'green'} onPress={setBackgroundColor} />
-        <Button title="ClickMe you stupid person!\n" onPress={onPressed} />
-      </View>
+      <FlatList
+        style={[styles.container, {backgroundColor}]}
+        data={colorsList}
+        renderItem={({item}) => {
+          return (
+            <ColorButton
+              key={item.id}
+              backgroundColor={item.color}
+              onPress={setBackgroundColor}
+            />
+          );
+        }}
+      />
     </>
   );
 };
@@ -57,11 +66,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   container: {
-    flex: 1,
-    alignItems: 'center',
+    display: 'flex',
     backgroundColor: '#DDD',
-    flexDirection: 'column',
-    justifyContent: 'center',
   },
 });
 export default App;
