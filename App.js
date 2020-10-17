@@ -10,6 +10,7 @@ import {
   FlatList,
 } from 'react-native';
 import ColorButton from './src/Components/ColorButton';
+import ColorForm from './src/Components/colorForm';
 // eslint-disable-next-line no-unused-vars
 const {height, width} = Dimensions.get('window');
 import colorsList from './data/defaultColors.json';
@@ -21,6 +22,7 @@ const App: () => React$Node = () => {
 
     <>
       <StatusBar hidden={true} />
+      <ColorForm/>
       <FlatList
         style={[styles.container, {backgroundColor}]}
         data={colorsList}
