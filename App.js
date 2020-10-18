@@ -14,18 +14,21 @@ import ColorForm from './src/Components/colorForm';
 // eslint-disable-next-line no-unused-vars
 const {height, width} = Dimensions.get('window');
 import colorsList from './data/defaultColors.json';
-
+import {generate} from 'shortid';
 const App: () => React$Node = () => {
   const [backgroundColor, setBackgroundColor] = useState('blue');
-
+  const [colors, setColors] = useState([]);
+  const addColor = (color) => {
+    const newColor = {id: generate(), color};
+    setColors([newColor, ...colors]);
+  };
   return (
-
     <>
       <StatusBar hidden={true} />
-      <ColorForm/>
+      <ColorForm onNewColor={(newColor) => addColor(newColor)} />
       <FlatList
         style={[styles.container, {backgroundColor}]}
-        data={colorsList}
+        data={colors}
         renderItem={({item}) => {
           return (
             <ColorButton
