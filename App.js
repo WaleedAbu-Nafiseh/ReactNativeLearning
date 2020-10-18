@@ -8,8 +8,16 @@ export default function App() {
   return (
     <NavigationContainer>
       <Navigator>
-        <Screen name="home" component={ColorList} />
-        <Screen name="details" component={ColorDetails} />
+        <Screen
+          name="home"
+          options={{title: 'Color List'}}
+          component={ColorList}
+        />
+        <Screen
+          name="details"
+          options={{title: 'Color Details'}}
+          component={ColorDetails}
+        />
       </Navigator>
     </NavigationContainer>
   );

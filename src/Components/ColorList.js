@@ -4,7 +4,7 @@ import {useColors} from '../utils/useColors';
 import ColorButton from './ColorButton';
 import ColorForm from './colorForm';
 
-export default function ColorList() {
+export default function ColorList({navigation}) {
   const [backgroundColor, setBackgroundColor] = useState('blue');
   const {colors, addColor} = useColors();
   return (
@@ -12,21 +12,23 @@ export default function ColorList() {
       <StatusBar hidden={true} />
       <ColorForm onNewColor={(newColor) => addColor(newColor)} />
       <FlatList
-        style={[styles.container, {backgroundColor}]}
+        style={styles.container}
         data={colors}
         renderItem={({item}) => {
           return (
             <ColorButton
               key={item.id}
               backgroundColor={item.color}
-              onPress={setBackgroundColor}
+              onPress={() =>
+                navigation.navigate('details', {color: item.color})
+              }
             />
           );
         }}
       />
     </>
   );
-};
+}
 const styles = StyleSheet.create({
   sample: {
     height: 20,
