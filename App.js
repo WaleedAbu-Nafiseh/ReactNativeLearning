@@ -15,13 +15,19 @@ import ColorForm from './src/Components/colorForm';
 const {height, width} = Dimensions.get('window');
 import colorsList from './data/defaultColors.json';
 import {generate} from 'shortid';
-const App: () => React$Node = () => {
-  const [backgroundColor, setBackgroundColor] = useState('blue');
+const useColors = () => {
   const [colors, setColors] = useState([]);
   const addColor = (color) => {
     const newColor = {id: generate(), color};
     setColors([newColor, ...colors]);
   };
+  return {colors, addColor};
+};
+
+
+const App: () => React$Node = () => {
+  const [backgroundColor, setBackgroundColor] = useState('blue');
+  const {colors,addColor}=useColors();
   return (
     <>
       <StatusBar hidden={true} />
