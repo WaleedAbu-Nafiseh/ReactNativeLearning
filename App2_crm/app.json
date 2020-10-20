@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "App2_crm",
+    "name": "App2_crm",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.NativeLearning.mobile"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.NativeLearning.mobile"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
+  }
+}
