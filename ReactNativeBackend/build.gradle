@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+
+
+mainClassName = 'ReactNativeBackend.Main'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'io.javalin:javalin:3.11.0'
+    compile 'org.slf4j:slf4j-simple:1.7.30'
+    testImplementation     'junit:junit:4.13'
+}
