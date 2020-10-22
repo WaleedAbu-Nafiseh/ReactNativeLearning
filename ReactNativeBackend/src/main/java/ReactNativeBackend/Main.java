@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Javalin app = Javalin.create().start(7000);
-        app.get("/", ctx -> ctx.result("Bye World"));
+        app.get("/", ctx -> ctx.result("Wth World"));
 
     }
     

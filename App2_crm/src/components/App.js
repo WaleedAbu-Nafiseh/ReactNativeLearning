@@ -17,7 +17,7 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <View>
-        <Text style={{paddingTop: windowWidth*0.05}}>My name is Waleed</Text>
+        <Text style={{paddingTop: windowWidth * 0.05}}>My name is w</Text>
         <TextInput style={{backgroundColor: 'red'}}>Please write</TextInput>
       </View>
     </>
