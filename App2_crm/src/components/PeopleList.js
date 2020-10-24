@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList,Dimensions, Text} from 'react-native';
 import {connect} from 'react-redux';
 import PeopleItem from './PeopleItem';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 class PeopleList extends Component {
   render() {
     return (
-      <View style={styles.container}>
+
+    <View style={styles.container}>
         <FlatList
           data={this.props.people}
           renderItem={({item}) => <PeopleItem people={item} />}
@@ -20,9 +24,10 @@ const mapStateToProps = (state) => {
 };
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexWrap: 'wrap',
-    width: 355,
+    flex:1,
+    backgroundColor: 'lightblue',
+    paddingTop: windowHeight * 0.05,
+    width: windowWidth,
     paddingLeft: 20,
     paddingRight: 20,
   },
