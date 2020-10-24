@@ -61,3 +61,6 @@ buck-out/
 # Project exclude paths
 /android/
 /ios/
+/.expo/web/cache/*
+/.expo/packager-info.json.349876455
+/debug.log
