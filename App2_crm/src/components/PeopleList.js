@@ -1,16 +1,23 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, FlatList,Dimensions, Text} from 'react-native';
-import {connect} from 'react-redux';
+import {View, StyleSheet, FlatList, Dimensions, Text, StatusBar} from 'react-native';
+import {connect, Provider} from 'react-redux';
 import PeopleItem from './PeopleItem';
-
+import Icon from 'react-native-vector-icons/EvilIcons';
+import HOAIcon from '../../assets/back.svg';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 class PeopleList extends Component {
+  static navigationOptions = {
+    tabBarIcon: ({tintColor}) => (
+        <Text>PeopleList</Text>
+
+    ),
+  };
   render() {
     return (
-
-    <View style={styles.container}>
+      <View style={styles.container}>
+        <StatusBar barStyle="dark-content" />
         <FlatList
           data={this.props.people}
           renderItem={({item}) => <PeopleItem people={item} />}
@@ -24,7 +31,7 @@ const mapStateToProps = (state) => {
 };
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: 'lightblue',
     paddingTop: windowHeight * 0.05,
     width: windowWidth,
